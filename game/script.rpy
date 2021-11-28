@@ -21,6 +21,7 @@ define o = Character("Utsuho",who_color="#1bd14c")
 
 define fade = Fade(2.0, 0.0, 0.0)
 define fade2 = Fade(0.0, 0.5, 2.0, color="#000")
+define farleft = Position(xpos=0.25)
 
 image yukariNormal = im.Scale("yukari normal.png", 1738/2, 2240/2)
 image yukariClosed = im.Scale("yukari frown.png", 1738/2, 2240/2)
@@ -30,6 +31,8 @@ image reimuAngryOrbs = im.Scale("reimu angry 2.png", 1000, 1000)
 image reimuConfused = im.Scale("reimu confused.png", 1000, 1000)
 image reimuNormal = im.Scale("reimu normal.png", 1000, 1000)
 image reimuClosed = im.Scale("reimu eyes closed.png", 1000, 1000)
+image kakkoiNormal =   im.Scale("kakkoi point.png", 1000, 1000)
+image okuuNormal = im.Scale("okuu kill you.png", 6160/3.84, 1000)
 image mega = im.Scale("title screen.png", 7595/5.4, 4548/5.4)
 
 #who_color="#6f52ff"
@@ -46,7 +49,15 @@ label start:
     # add a file (named either "bg room.png" or "bg room.jpg") to the
     # images directory to show it.
 
-    scene bg bedroom
+    
+    scene bg grasslands
+    
+   
+    show okuuNormal at farleft
+    show kakkoiNormal at right
+
+    pause 90
+    # scene bg bedroom
 
     # This shows a character sprite. A placeholder is used, but you can
     # replace it by adding a file named "eileen happy.png" to the images
@@ -622,7 +633,7 @@ label contineud1:
 
     hide okuuHappy
 
-    show okuuNormal at right
+    show okuuNormal at left
     
     o "So give me seven oreos."
 
@@ -706,89 +717,206 @@ label contineud1:
 
     show kakkoiSmoking at right
     
-Kakkoi (smoking): Only the finest in Gensokyo
-r who are you anyhow?
-k me? Just some gambler, no need to worry
-Kakkoi (normal): Though I do have a super cool and interesting backstory
-Marisa: Can we hear it
-Kakkoi (smoking): No
-Reimu (angry): i’m assuming youre the ones behind the incident
-Kakkoi (normal): No we’re just gonna make the planet green
-Reimu (normal): recycling
-Reimu (eyes closed): Oh phew I thought you were gonna say—
-Kakkoi (sus): green with FAT STACKS OF COLD HARD CASH
-pov of course of fucking course
-Reimu (normal): so you’re going to turn the planet into pure money
-Kakkoi (normal): yyyyyep!
-Marisa (shocked): if you do that people will die!
-Kakkoi (smoking): so? A little homicide never hurt nobody 
-Reimu (angry): That will destroy the planet!
-pov Oh no *beat* 
+    k "Only the finest in Gensokyo!"
 
-Choice 1 (only difference between choices is input)
-this has a chance of resulting in a notable decrease in the future voter turnout
+    r "Who are you anyhow?"
+    
+    k "Me? Just some gambler, no need to worry."
 
-Choice 2
-this will have a negative impact on the real estate value
+    hide kakkoiSmoking
 
-r THATS WHAT YOURE CONCERNED ABOUT?
-k okuu go start printing out unreasonably large amounts of money ok thx
-Okuu (confused): how can you print money?
-Kakkoi (unhappy): With magic idfk
-Okuu (happy): oh yeah! How can i be so stupid?
-Kakkoi (smoking): it comes naturally
-Okuu leaves
-r you’re not doing that on my watch!
-k alright lemme show you the art of the trade
-k i will give you three shinky nickels for you to not stop me
-Reimu (happy): make it two and a half, and you have a deal!
-pov what
-Kakkoi (smoking): art of the trade
+    show kakkoiNormal at right
 
+    k "Though I do have a super cool and interesting backstory."
 
-k Haha Took me years to think of that
-pov Years wasted
+    m "Can we hear it?"
 
+    hide kakkoiNormal
 
+    show kakkoiSmoking at right
 
-Okuu reappears
-k well, did you do it?
-Utsuho: I have drank 7 terabytes of plutonium
-k OKUU YOU IDIOT
-Utsuho: I will drink some more
-pov Sounds like you need risk mitigation
-Kakkoi (unhappy): Oh, a wise guy eh?
-Kakkoi (pointing): OKUU SEND THIS WACK ASS BITCH TO THE SCOLDING IRON GATES OF HELL AND HAVE THEM DAMNED!! 
-pov Do you have any skittles
-WHERE THEIR UNHOLY TORMENT MAY BE A TESTAMENT TO THEIR WRETCHED LIFE AND WICKED WAYS
-Okuu: what does that mean
-Kakkoi (sus): kill
-Kakkoi normal
-Okuu: oh yeah sorry hang on one sec
-Okuu prepares to fire
-*microwave noise*
-pov uh oh
-*microwave beep*
-Okuu fires
-BOOM
-Black screen
+    k "No"
 
+    hide reimuNormal
+    show reimuAngry at left
 
+    r "I’m assuming youre the ones behind the incident."
 
-I’ll have to give myself a prrrrromotion!
+    hide kakkoiSmoking
 
+    show kakkoiNormal at right
 
+    k "No we’re just gonna make the planet green."
 
-Gentlemen, you can't fight in here! This is the War Room!
+    hide reimuAngry
 
+    show reimuNormal at left
 
-pov wait so YOU MFS CAUSED APOLLO 13
-Eirin: No that’s  
-Eirin: Well…
-Eirin: Those were actions of the lunar capital
-pov what the fuck
-Some explaining later
+    r "Recycling"
 
+    hide reimuNormal
+
+    show reimuClosed at left
+
+    r "Oh phew I thought you were gonna say—"
+
+    hide kakkoiNormal
+
+    show kakkoiSus at right
+
+    k "Green with FAT STACKS OF COLD HARD CASH"
+    
+    pov "Of course of fucking course"
+
+    hide reimuClosed
+
+    show reimuNormal at left
+
+    r "So you’re going to turn the planet into pure money?"
+
+    hide kakkoiSus
+
+    show kakkoiNormal at right
+    
+    k "yyyyyep!"
+
+    # Marisa (shocked):
+
+    m "If you do that people will die!"
+
+    hide kakkoiNormal
+
+    show kakkoiSmoking at right
+    
+    k "So? A little homicide never hurt nobody"
+
+    hide reimuNormal
+
+    show reimuAngry at left
+    
+    r "That will destroy the planet!"
+
+    pov "Oh no *beat*" 
+
+menu:
+
+    "This has a chance of resulting in a notable decrease in the future voter turnout":
+    
+
+        jump contineud2
+        
+    "This will have a negative impact on the real estate value":
+
+        jump contineud2
+
+label contineud2:
+
+    r "THATS WHAT YOURE CONCERNED ABOUT?"
+
+    k "Okuu go start printing out unreasonably large amounts of money ok thx"
+
+    hide okuuHappy
+    show okuuConfused at center
+
+    o "How can you print money?"
+
+    hide kakkoiSmoking
+
+    show kakkoiUnhappy at right
+
+    k "With magic idfk"
+
+    hide okuuConfused
+
+    show okuuHappy at center
+
+    o "oh yeah! How can i be so stupid?"
+
+    hide kakkoiUnhappy
+
+    show kakkoiSmoking at right
+
+    k "It comes naturally."
+
+    hide okuuHappy with moveoutright
+
+    show reimuAngry at center with move
+
+    show marisaNormal at left with moveinleft
+
+    r "You’re not doing that on my watch!"
+
+    k "Alright lemme show you the art of the trade."
+
+    k "I will give you three shinky nickels for you to not stop me."
+
+    hide reimuAngry 
+
+    show reimuHappy at center
+
+    r "Make it two and a half, and you have a deal!"
+
+    pov "what"
+
+    k "Art of the trade"
+
+    k "Haha Took me years to think of that"
+
+    hide marisaNormal with moveinleft
+
+    hide reimuHappy with moveinleft
+
+    show okuuNormal at left with moveinright
+
+    pov "Years wasted"
+
+    k "Well, did you do it?"
+
+    o "I have drank 7 terabytes of plutonium."
+
+    k "OKUU YOU IDIOT"
+
+    o "I will drink some more"
+
+    pov "Sounds like you need risk mitigation."
+
+    hide kakkoiSmoking
+
+    show kakkoiUnhappy at right
+
+    k "Oh, a wise guy eh?"
+
+    hide kakkoiUnhappy
+
+    show KakkoiPointing at right
+
+    k "OKUU SEND THIS WACK ASS BITCH TO THE SCOLDING IRON GATES OF HELL AND HAVE THEM DAMNED!!"
+
+    pov "Do you have any skittles?"
+
+    k "WHERE THEIR UNHOLY TORMENT MAY BE A TESTAMENT TO THEIR WRETCHED LIFE AND WICKED WAYS"
+
+    o "what does that mean?"
+
+    hide KakkoiPointing
+
+    show kakkoiSus at right
+    
+    k "Kill"
+
+    pause 1
+
+    hide kakkoiSus
+
+    show KakkoiPointing at right
+
+    o "oh yeah sorry hang on one sec"
+
+    $ renpy.movie_cutscene("forest.mkv", delay=None, loops=0, stop_music=True)
+
+    # bg eientei
+
+   
     # This ends the game.
 
     return
