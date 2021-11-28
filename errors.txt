@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 914: expected statement.
-    bg eientei
-              ^
+File "game/script.rpy", line 145: Line is indented, but the preceding show statement statement does not expect a block. Please check this line's indentation.
+    pov "Who tf are you?"
+    ^
 
 Ren'Py Version: Ren'Py 7.4.8.1895
-Sun Nov 28 05:24:36 2021
+Sun Nov 28 07:50:51 2021

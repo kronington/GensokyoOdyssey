@@ -10,7 +10,6 @@ define y = Character("Yukari",who_color="#c455ff")
 define s = Character("Sakuya",who_color="#4284f5")
 define rei = Character("Reisen",who_color="#8e7cc3")
 define c = Character("Cirno",who_color="#00ffff")
-# define u = Character("Utsuho",who_color="#1bd14c")
 define k = Character("Kakkoi",who_color="#e1c699")
 define e = Character("Eirin",who_color="#1c4587")
 define gg = Character("Gregton Grey",who_color="#616161")
@@ -23,16 +22,45 @@ define fade = Fade(2.0, 0.0, 0.0)
 define fade2 = Fade(0.0, 0.5, 2.0, color="#000")
 define farleft = Position(xpos=0.25)
 
-image yukariNormal = im.Scale("yukari normal.png", 1738/2, 2240/2)
-image yukariClosed = im.Scale("yukari frown.png", 1738/2, 2240/2)
-image yukariShocked = im.Scale("yukari shocked.png", 1738/2, 2240/2)
-image reimuAngry = im.Scale("reimu angry 1.png", 1000, 1000)
-image reimuAngryOrbs = im.Scale("reimu angry 2.png", 1000, 1000)
-image reimuConfused = im.Scale("reimu confused.png", 1000, 1000)
-image reimuNormal = im.Scale("reimu normal.png", 1000, 1000)
-image reimuClosed = im.Scale("reimu eyes closed.png", 1000, 1000)
-image kakkoiNormal =   im.Scale("kakkoi point.png", 1000, 1000)
-image okuuNormal = im.Scale("okuu kill you.png", 6160/3.84, 1000)
+image yukariNormal = im.Scale("yukari normal.png", 1738/2.24, 1000)
+image yukariClosed = im.Scale("yukari frown.png", 1738/2.24, 1000)
+image yukariShocked = im.Scale("yukari shocked.png", 1738/2.24, 1000)
+image reimuAngry = im.Scale("reimu angry 1.png", 3361/3.84, 1000)
+image reimuAngryOrbs = im.Scale("reimu angry 2.png", 3361/3.84, 1000)
+image reimuConfused = im.Scale("reimu confused.png", 3361/3.84, 1000)
+image reimuNormal = im.Scale("reimu normal.png", 3361/3.84, 1000)
+image reimuClosed = im.Scale("reimu eyes closed.png", 3361/3.84, 1000)
+image reimuHappy = im.Scale("reimu happy.png",3361/3.84,1000)
+image gregtonE = im.Scale("gregton.png",787/1.801,1000)
+image jesserE = im.Scale("jesser.png",787/1.801,1000)
+image eirinConfused = im.Scale("eirin confused.png",2400/3.8,1000)
+image eirinClosed = im.Scale("eirin frown.png",2400/3.8,1000)
+image eirinNormal = im.Scale("eirin normal.png",2400/3.8,1000)
+image eirinHappyClosed = im.Scale("eirin happy closed.png",2400/3.8,1000)
+image kakkoiNormal = im.Scale("kakkoi normal.png",3122/3.84,1000)
+image kakkoiPointing = im.Scale("kakkoi point.png",3122/3.84,1000)
+image kakkoiSmoking = im.Scale("kakkoi smoking it.png",3122/3.84,1000)
+image kakkoiSus = im.Scale("kakkoi SUS.png",3122/3.84,1000)
+image kakkoiUnhappy = im.Scale("kakkoi unhappy.png",3122/3.84,1000)
+image okuuHappy =  im.Scale("okuu happy.png", 3446/3.84, 1000)
+image okuuKiller = im.Scale("okuu kill you.png", 6160/3.84, 1000)
+image okuuNormal = im.Scale("okuu normal.png", 3446/3.84, 1000)
+image okuuConfused = im.Scale("okuu question.png", 3446/3.84, 1000)
+image okuuShoot = im.Scale("okuu shoot at you.png", 6160/3.84, 1000)
+image remiliaAhAhAh =  im.Scale("remilia ah ah ah.png", 2400/3.8, 1000)
+image remiliaNormal = im.Scale("remilia normal.png", 2400/3.8, 1000)
+image remiliaAngry = im.Scale("remilia angry.png", 2400/3.8, 1000)
+image cirnoFumo = im.Scale("cirno fumo.png", 2400/3.8, 1000)
+image cirnoHappy = im.Scale("cirno happy.png", 2400/3.8, 1000)
+image cirnoNormal = im.Scale("cirno normal.png", 2400/3.8, 1000)
+image marisaAngry = im.Scale("marisa angry.png", 544/0.744, 1000)
+image marisaConfused = im.Scale("marisa shocked.png", 544/0.744, 1000)
+image marisaNormal = im.Scale("marisa neutral.png", 544/0.744, 1000)
+image marisaHappy = im.Scale("marisa happy.png", 544/0.744, 1000)
+image sakuyaNormal = im.Scale("sakuya normal.png",1320/2.07,1000)
+
+image KakkoiPointing2 = im.Scale("kakkoi point.png", 1000, 1000)
+
 image mega = im.Scale("title screen.png", 7595/5.4, 4548/5.4)
 
 #who_color="#6f52ff"
@@ -48,16 +76,8 @@ label start:
     # Show a background. This uses a placeholder by default, but you can
     # add a file (named either "bg room.png" or "bg room.jpg") to the
     # images directory to show it.
-
     
-    scene bg grasslands
-    
-   
-    show okuuNormal at farleft
-    show kakkoiNormal at right
-
-    pause 90
-    # scene bg bedroom
+    scene bg bedroom
 
     # This shows a character sprite. A placeholder is used, but you can
     # replace it by adding a file named "eileen happy.png" to the images
@@ -77,12 +97,50 @@ label start:
 
 
     show yukariNormal:
-        alpha 0.0 xalign 0.5 yalign 0
+        alpha 0.0 xalign 0.5 yalign 1.0
         linear 2 alpha 1.0 xalign 0.5
 
     pause 2.0
     
     y "Hey"
+
+    # show yukariNormal
+    # show yukariClosed 
+    # show yukariShocked
+    # show reimuAngry
+    # show reimuAngryOrbs 
+    # show reimuConfused 
+    # show reimuNormal 
+    # show reimuClosed 
+    # show reimuHappy 
+    # show gregtonE
+    # show jesserE 
+    # show eirinConfused 
+    # show eirinClosed
+    # show eirinNormal 
+    # show eirinHappyClosed 
+    # show kakkoiNormal   
+    # show kakkoiPointing 
+    # show kakkoiSmoking
+    # show kakkoiSus
+    # show kakkoiUnhappy
+    # show okuuHappy 
+    # show okuuKiller 
+    # show okuuNormal 
+    # show okuuConfused
+    # show okuuShoot
+    # show remiliaAhAhAh 
+    # show remiliaNormal
+    # show remiliaAngry 
+    # show cirnoFumo 
+    # show cirnoHappy 
+    # show cirnoNormal
+    # show marisaAngry 
+    # show marisaConfused 
+    # show marisaNormal 
+    # show marisaHappy 
+    # show sakuyaNormal
+
 
     pov "Who tf are you?"
 
@@ -224,9 +282,9 @@ label start:
 
     # Iovino walks in a city street when he comes across an alleyway with two men
 
-    show gregton at left with moveinright
+    show gregtonE at left with moveinright
 
-    show jesser at right with moveinleft
+    show jesserE at right with moveinleft
 
     gg "Hey kid would you like—"
     
@@ -467,7 +525,7 @@ label contineud:
     show black
     with fade
 
-    scene bg mansion
+    scene bg scarlet devil mansion
     with fade2
 
     play music "<loop 15>audio/scarlet devil hotel.mp3"
@@ -888,7 +946,7 @@ label contineud2:
 
     hide kakkoiUnhappy
 
-    show KakkoiPointing at right
+    show kakkoiPointing at right
 
     k "OKUU SEND THIS WACK ASS BITCH TO THE SCOLDING IRON GATES OF HELL AND HAVE THEM DAMNED!!"
 
@@ -898,7 +956,7 @@ label contineud2:
 
     o "what does that mean?"
 
-    hide KakkoiPointing
+    hide kakkoiPointing
 
     show kakkoiSus at right
     
@@ -908,13 +966,75 @@ label contineud2:
 
     hide kakkoiSus
 
-    show KakkoiPointing at right
+    show KakkoiPointing2 at right
 
     o "oh yeah sorry hang on one sec"
 
-    $ renpy.movie_cutscene("forest.mkv", delay=None, loops=0, stop_music=True)
+    hide okuuNormal
 
-    # bg eientei
+    show okuuKiller at farleft
+
+    show KakkoiPointing2 at right
+
+    $ renpy.movie_cutscene("boom.mkv", delay=None, loops=0, stop_music=True)
+
+
+    scene bg eientei
+    with fade2
+
+#     Reisen (shocked): Doctor Eirin, I think they’re awakening!
+# Eirin (normal): very good, reisen 
+# M: I got a boo boo
+# Eirin (normal): You have multiple bone fractures and severe radiation poisoning
+# M: I want lollipop now
+# Eirin (eyes closed): You will die in minutes without treatment
+# M: I want green apple flavor plz
+# Eirin: Reisen, Get the ingredients for the medicine
+# Reisen: yes, dr. eirin
+# Reisen leaves
+# Offscreen Mokou: kaguya it’s been 17000 years 
+# Offscreen Mokou: you still owe me 16$ dollars
+# Reisen: uh oh
+# Eirin: Oh no those two are fighting again
+# Eirin: It looks like we’ll be waiting a while
+# Eirin (normal): Forgive me for not introducing myself, I am eirin, the doctor of this clinic
+# Eirin: ...
+# M: (Quick i have to make small talk) 
+# M: So uh did you know three out of four people make up 75% of the population
+# M: Crazy right
+# Eirin (eyes closed): how did a human like you get so far in gensokyo?
+# M: plot armor but i like to think its my charm and wit
+# Eirin: right. 
+# M: yo is that the american flag back there
+# Eirin (confused): hm?
+# M: america. the nation. the flag.
+# Eirin (normal): oh, you must mean the moon invaders
+# M: of course something batshit crazy every single minute
+# M: you’re gonna pull some wizardry bullshit in the next 2 minutes i can tell
+# Eirin (confused): wizardry? Well..
+# Eirin : have you ever heard of the curse of apollo 13?
+# M: what
+# M: wait so YOU MFS CAUSED APOLLO 13
+# Eirin: No that’s  
+# Eirin: Well…
+# Eirin: Those were actions of the lunar capital
+# M: what the fuck is a lunar capital
+# Some explaining later...
+# M: Wow I knew the government was lying to me but the last thing I would expect to be the truth was that there are bunnies hidden on the moon attacking anyone who enters like it’s north sentinel island
+# Eirin: Then perhaps your government covering up such dangerous knowledge is beneficial for humanity?
+# M: That doesn’t matter cause I’m stuck in this little alice in wonderland situation except its real and i now have radiation poisoning
+# Eirin (eyes closed): it seems you have been living past your lifespan
+# M: Look who’s talking ms. Millennium you give the queen of England a run for her money wooo gottem
+
+
+# Eirin: My potion is done.
+# Eirin: all its missing are the pop tarts
+# Reisen will be here shortly with the last ingredients.
+
+# Eirin: heres the medicine
+# M: I don’t trust like that
+# Eirin: like i said without treatment you’ll die soon so it’s in your best interest to take it
+# M: taste like watermelon seed
 
    
     # This ends the game.
