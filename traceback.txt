@@ -1,15 +1,15 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
-While loading <'Scale' <'Image' u'kakkoi smokingit.png'> 813.0208333333334 1000 True>:
-  File "game/script.rpy", line 145, in script
-    pov "Who tf are you?"
-IOError: Couldn't find file 'kakkoi smokingit.png'.
+While loading <'Image' u'images/bg casino.jpg'>:
+  File "game/script.rpy", line 1390, in script
+    y "No youre still stuck here."
+IOError: Couldn't find file 'images/bg casino.jpg'.
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script.rpy", line 145, in script
-    pov "Who tf are you?"
+  File "game/script.rpy", line 1390, in script
+    y "No youre still stuck here."
   File "C:\Users\Kenji\Downloads\renpy-7.4.8-sdk/renpy/ast.py", line 716, in execute
     renpy.exports.say(who, what, *args, **kwargs)
   File "C:\Users\Kenji\Downloads\renpy-7.4.8-sdk/renpy/exports.py", line 1417, in say
@@ -56,15 +56,11 @@ Full traceback:
     return cache.get(self, render=True)
   File "C:\Users\Kenji\Downloads\renpy-7.4.8-sdk/renpy/display/im.py", line 271, in get
     surf = image.load()
-  File "C:\Users\Kenji\Downloads\renpy-7.4.8-sdk/renpy/display/im.py", line 858, in load
-    child = cache.get(self.image)
-  File "C:\Users\Kenji\Downloads\renpy-7.4.8-sdk/renpy/display/im.py", line 271, in get
-    surf = image.load()
   File "C:\Users\Kenji\Downloads\renpy-7.4.8-sdk/renpy/display/im.py", line 688, in load
     raise e
-IOError: Couldn't find file 'kakkoi smokingit.png'.
+IOError: Couldn't find file 'images/bg casino.jpg'.
 
 Windows-10-10.0.19041
 Ren'Py 7.4.8.1895
 Gensokyo Odyssey 1.0
-Sun Nov 28 07:52:52 2021
+Sun Nov 28 15:59:46 2021

@@ -19,8 +19,14 @@ define g = Character("Granny")
 define o = Character("Utsuho",who_color="#1bd14c")
 
 define fade = Fade(2.0, 0.0, 0.0)
+define fade3 = Fade(5.0, 0.0, 0.0)
 define fade2 = Fade(0.0, 0.5, 2.0, color="#000")
+
 define farleft = Position(xpos=0.25)
+define farfarleft = Position(xpos=0.145)
+define farright = Position(xpos=0.84)
+define offcentered1 =  Position(xpos=0.367)
+define  offcentered = Position(xpos=0.60)
 
 image yukariNormal = im.Scale("yukari normal.png", 1738/2.24, 1000)
 image yukariClosed = im.Scale("yukari frown.png", 1738/2.24, 1000)
@@ -53,11 +59,14 @@ image remiliaAngry = im.Scale("remilia angry.png", 2400/3.8, 1000)
 image cirnoFumo = im.Scale("cirno fumo.png", 2400/3.8, 1000)
 image cirnoHappy = im.Scale("cirno happy.png", 2400/3.8, 1000)
 image cirnoNormal = im.Scale("cirno normal.png", 2400/3.8, 1000)
-image marisaAngry = im.Scale("marisa angry.png", 544/0.744, 1000)
-image marisaConfused = im.Scale("marisa shocked.png", 544/0.744, 1000)
-image marisaNormal = im.Scale("marisa neutral.png", 544/0.744, 1000)
-image marisaHappy = im.Scale("marisa happy.png", 544/0.744, 1000)
+image marisaAngry = im.Scale("marisa angry.png", 504/0.6, 950)
+image marisaConfused = im.Scale("marisa shocked.png", 504/0.539, 950)
+image marisaNormal = im.Scale("marisa neutral.png", 504/0.539, 950)
+image marisaHappy = im.Scale("marisa happy.png", 504/0.539, 950)
+image marisaShocked = im.Scale("marisa shocked.png", 504/0.539, 950)
 image sakuyaNormal = im.Scale("sakuya normal.png",1320/2.07,1000)
+image reisenConcerned = im.Scale("reisen concerned.png",1320/2.27,1000)
+image reisenNormal = im.Scale("reisen normal 2.png",1320/2.27,1000)
 
 image KakkoiPointing2 = im.Scale("kakkoi point.png", 1000, 1000)
 
@@ -67,17 +76,26 @@ image mega = im.Scale("title screen.png", 7595/5.4, 4548/5.4)
 # The game starts here.
 
 label start:
-    stop music fadeout 1.0
-    
+    stop music fadeout 0.5
     
     # play music "audio/billiards.mp3"
-    play music "<loop 1>audio/billiards.mp3"
+    
+    
+    # show okuuNormal at left
+
+    # show okuuNormal at offcentered with move
+
+    # pause 60
 
     # Show a background. This uses a placeholder by default, but you can
     # add a file (named either "bg room.png" or "bg room.jpg") to the
     # images directory to show it.
     
     scene bg bedroom
+
+    pause 0.5
+
+    play music "<loop 1>audio/billiards.mp3" fadein 2.0
 
     # This shows a character sprite. A placeholder is used, but you can
     # replace it by adding a file named "eileen happy.png" to the images
@@ -92,9 +110,7 @@ label start:
     
     
     # These display lines of dialogue.
-
     pov "Ah good morning! And to all who inhabit it!"
-
 
     show yukariNormal:
         alpha 0.0 xalign 0.5 yalign 1.0
@@ -104,6 +120,7 @@ label start:
     
     y "Hey"
 
+    # Some old testing code
     # show yukariNormal
     # show yukariClosed 
     # show yukariShocked
@@ -140,7 +157,8 @@ label start:
     # show marisaNormal 
     # show marisaHappy 
     # show sakuyaNormal
-
+    # show reisenConcerned
+    # show reisenNormal
 
     pov "Who tf are you?"
 
@@ -212,7 +230,7 @@ label start:
 
     y "Wh—"
 
-    pov "Time to brush my teth"
+    pov "Time to brush my teeth"
 
     pov "{i}*brushes teeth*{/i}"
 
@@ -268,7 +286,7 @@ label start:
     scene bg city
     with fade2
 
-    play music "<loop 32>audio/construction zone.mp3"
+    play music "<loop 32>audio/construction zone.mp3" fadein 2.0
     
     pov "Man this is such a long commute"
         
@@ -311,11 +329,13 @@ label contineud:
 
     pov "{i}*devours the substance instantaneously*{/i}"
 
-    stop music 
-    
-    pov "{i}*vanishes*{/i}" 
-
     play sound "audio/warp.mp3"
+
+    stop music fadeout 0.5
+    
+    # pov "{i}*vanishes*{/i}" 
+
+    
 
     show black
     with fade
@@ -345,7 +365,7 @@ label contineud:
     scene bg forest
     with fade2
 
-    play music "<loop 0>audio/forest part b.mp3"
+    play music "<loop 0>audio/forest part b.mp3" fadein 2.0
     
     pov "Should have never smoked that shit now I’m in some fuckin wonderland wizard of oz place"
     
@@ -357,7 +377,7 @@ label contineud:
     
     $ renpy.movie_cutscene("forest.mkv", delay=None, loops=0, stop_music=True)
 
-    play music "<loop 0>audio/forest part a.mp3"
+    play music "<loop 0>audio/forest part a.mp3" fadein 2.0
     
     scene bg forest
 
@@ -407,6 +427,7 @@ label contineud:
     pause 2
 
     scene bg shrine
+    with fade2
 
     pov "Wow!"
 
@@ -465,7 +486,7 @@ label contineud:
 
     window hide
 
-    pause 5
+    pause 2.25
 
     window show
 
@@ -528,7 +549,7 @@ label contineud:
     scene bg scarlet devil mansion
     with fade2
 
-    play music "<loop 15>audio/scarlet devil hotel.mp3"
+    play music "<loop 15>audio/scarlet devil hotel.mp3" fadein 2.0
     
     "Some time later..."
 
@@ -536,17 +557,17 @@ label contineud:
 
     show sakuyaNormal with moveinleft
     
-    "???" "Welcome to the scarlet devil mansion, what brings you here?"
+    "???" "Welcome to the Scarlet Devil Mansion, what brings you here?"
 
     pov "I’m here to see the boss"
     
-    "???" "The mistress? A human doesn’t come to the scarlet devil mansion for leisure, I’m assuming it’s important business"
+    "???" "The mistress? A human doesn’t come to the Scarlet Devil Mansion for leisure, I’m assuming it’s important business"
 
     pov "Assumed correctly"
 
-    s "Very well. I am sakuya, the mistress’s head maid"
+    s "Very well. I am Sakuya, the mistress’s head maid"
     
-    pov "Wow! She’s so imdportant even her head has it’s own maid!"
+    pov "Wow! She’s so important even her head has it’s own maid!"
     
     s "Are you like this with everyone"
     
@@ -554,7 +575,11 @@ label contineud:
 
     s "Uh oh"
 
-    scene bg insideMansion
+    show black
+    with fade
+
+    scene bg scarlet devil mansion:
+        xalign 0.54 yalign 0.35 zoom 1.525
     with fade2
 
     show sakuyaNormal at left with moveinleft
@@ -563,16 +588,16 @@ label contineud:
 
     pov "Holy shit its count dracula"
 
-    r "So this is the human that entered recently?"
+    rem "So this is the human that entered recently?"
 
     s "It would appear so."
     
-    r "Sakuya, give us something to drink."
+    rem  "Sakuya, give us something to drink."
 
     s "Yes mistress"
 
 menu:
-    s "[povname] Coffee or Tea?"
+    s "[povname], Coffee or Tea?"
 
     "Coffee":
     
@@ -593,31 +618,42 @@ menu:
 label contineud1: 
     if coffe:
 
-        s "Wrong it's Tea"
+        s "Wrong, it's Tea"
+
+        s "Coffee or tea, mistress?"
+
+        rem  "Tea"
+
+        rem "Wrong, it's Coffee"
     
     else:
         
-        s "Wrong it's Coffee"
+        s "Wrong, it's Coffee"
 
-    s "Coffee or tea, mistress?"
+        s "Coffee or tea, mistress?"
 
-    r "So tell me, why exactly are you here?"
+        rem "Coffee"
+
+        rem  "Wrong, it's Tea"
+
+
+    rem  "So tell me, why exactly are you here?"
 
     pov "Crackheads telling me about an evil person"
     
-    r "I see"
+    rem "I see"
 
-    r "Well that doesnt really whittle it down so I really can’t help you"
+    rem "Well that doesnt really whittle it down so I really can’t help you"
 
-    r "Why don’t you check the library?"
+    rem "Why don’t you check the library?"
 
     pov "Your library is full of just Weird Al album records"
     
-    r "A wise man once said that \"{i}He who is tired of Weird Al is tired of life{/i}\", you know"
+    rem "A wise man once said that \"{i}He who is tired of Weird Al is tired of life{/i}\", you know"
     
     pov "How do you people not know what a phone is but you know every single Weird Al album you people are fucking weird "
     
-    r "haha get it ok shut up"
+    rem "haha get it ok shut up"
     
     pov "ok thats it"
 
@@ -631,13 +667,17 @@ label contineud1:
 
     show remiliaAhAhAh at right
     
-    r "ONE DEAD HUMAN AH AH AH"
+    rem "ONE DEAD HUMAN AH AH AH"
     
     pov "ok its time to gtfo"
 
     stop music fadeout 2.0
 
+    show black
+    with fade
+
     scene bg grasslands
+    with fade2
 
     show reimuNormal at left with moveinleft
 
@@ -659,31 +699,31 @@ label contineud1:
 
     hide marisaNormal with moveoutleft 
     
-    play music "<loop 0>audio/kakkoi.mp3"
+    play music "<loop 0>audio/kakkoi.mp3" fadein 2.0
 
     show okuuNormal at left with moveinright
 
-    show kakkoiNormal at right with moveinright
+    show kakkoiNormal at farright with moveinright
 
     k "And he says, \"whaddya gonna do now, tough guy?\""
     
     k "And I tell him, \"hey; if you’re gonna put oreos on a pizza\"" 
 
-    hide okuuNormal
+    hide kakkoiNormal
 
-    show okuuSmoking at left
+    show kakkoiSmoking at farright 
 
     o "At least have some milk to go with it!"
 
-    hide okuuSmoking
+    hide okuuNormal
 
     show okuuHappy at left
 
     o "Cool story can I have some oreos?"
 
-    hide kakkoiNormal
+    hide kakkoiSmoking
 
-    show kakkoiUnhappy at right
+    show kakkoiUnhappy at farright 
 
     k "Wh—"
 
@@ -701,29 +741,32 @@ label contineud1:
 
     hide kakkoiUnhappy
 
-    show kakkoiNormal at right
+    show kakkoiNormal at farright 
 
     k "Well well well. What do we have here?" 
 
     hide kakkoiNormal
 
-    show kakkoiUnhappy at right
+    show kakkoiUnhappy at farright 
 
     k "No really, who are these guys?"
 
-    show okuuNormal at center with move
+    show okuuNormal at offcentered1 with move
 
-    show reimuNormal at left with moveinleft
+    show reimuNormal at farfarleft with moveinleft
 
     m "I have never seen you before in my life."
 
     hide kakkoiUnhappy
 
-    show kakkoiSmoking at right
+    show kakkoiSmoking at farright
 
     k "Yeah"
 
-    k "The name’s Kakkoi elbertson and she’s Utsuho ok now tell me yours."
+
+    k "Ladies and gentlemen of the jury, may i have the attention of the class."
+    
+    k "My name’s kakkoi elbertson and she’s utsuho ok now tell me yours."
 
     r "Hello, I’m Reimu."
 
@@ -731,7 +774,7 @@ label contineud1:
 
     hide kakkoiSmoking
 
-    show kakkoiNormal at right
+    show kakkoiNormal at farright
 
     k "Marisa more like marishart haha yet another hilarious joke."
 
@@ -741,13 +784,13 @@ label contineud1:
 
     hide okuuNormal
 
-    show okuuHappy at center
+    show okuuHappy at offcentered 
 
     o "I am the sun god!"
 
     hide okuuHappy
 
-    show okuuNormal at center 
+    show okuuNormal at offcentered  
     
     o "Perhaps!" 
 
@@ -755,13 +798,13 @@ label contineud1:
 
     hide okuuNormal
 
-    show okuuHappy at center
+    show okuuHappy at offcentered 
     
     o "Tweak tweak!"
 
     hide kakkoiNormal
 
-    show kakkoiUnhappy at right
+    show kakkoiUnhappy at farright 
 
     k "Ok that’s enough you can tweak on your own time but right now I’m paying you to be my muscle!"
     
@@ -773,7 +816,7 @@ label contineud1:
 
     hide kakkoiUnhappy
 
-    show kakkoiSmoking at right
+    show kakkoiSmoking at farright 
     
     k "Only the finest in Gensokyo!"
 
@@ -783,7 +826,7 @@ label contineud1:
 
     hide kakkoiSmoking
 
-    show kakkoiNormal at right
+    show kakkoiNormal at farright 
 
     k "Though I do have a super cool and interesting backstory."
 
@@ -791,36 +834,36 @@ label contineud1:
 
     hide kakkoiNormal
 
-    show kakkoiSmoking at right
+    show kakkoiSmoking at farright 
 
     k "No"
 
     hide reimuNormal
-    show reimuAngry at left
+    show reimuAngry at farfarleft
 
     r "I’m assuming youre the ones behind the incident."
 
     hide kakkoiSmoking
 
-    show kakkoiNormal at right
+    show kakkoiNormal at farright 
 
     k "No we’re just gonna make the planet green."
 
     hide reimuAngry
 
-    show reimuNormal at left
+    show reimuNormal at farfarleft
 
     r "Recycling"
 
     hide reimuNormal
 
-    show reimuClosed at left
+    show reimuClosed at farfarleft
 
     r "Oh phew I thought you were gonna say—"
 
     hide kakkoiNormal
 
-    show kakkoiSus at right
+    show kakkoiSus at farright 
 
     k "Green with FAT STACKS OF COLD HARD CASH"
     
@@ -828,35 +871,49 @@ label contineud1:
 
     hide reimuClosed
 
-    show reimuNormal at left
+    show reimuNormal at farfarleft
 
     r "So you’re going to turn the planet into pure money?"
 
     hide kakkoiSus
 
-    show kakkoiNormal at right
+    show kakkoiNormal at farright 
     
     k "yyyyyep!"
 
-    # Marisa (shocked):
+    
+    show marisaShocked:
+        xalign -2.0 yalign 1.0 rotate 135
+        linear 2.5 xalign 0.5 yalign 6.0
+
 
     m "If you do that people will die!"
 
     hide kakkoiNormal
 
-    show kakkoiSmoking at right
+    show kakkoiSmoking at farright 
     
     k "So? A little homicide never hurt nobody"
 
     hide reimuNormal
 
-    show reimuAngry at left
+    hide marisaShocked
+
+    show reimuAngry at farfarleft
     
     r "That will destroy the planet!"
 
-    pov "Oh no *beat*" 
+    pov "Oh no" 
+
+    window hide
+
+    pause 2.25
+
+    window show
+
 
 menu:
+    "Select an option:"
 
     "This has a chance of resulting in a notable decrease in the future voter turnout":
     
@@ -874,25 +931,25 @@ label contineud2:
     k "Okuu go start printing out unreasonably large amounts of money ok thx"
 
     hide okuuHappy
-    show okuuConfused at center
+    show okuuConfused at offcentered 
 
     o "How can you print money?"
 
     hide kakkoiSmoking
 
-    show kakkoiUnhappy at right
+    show kakkoiUnhappy at farright 
 
     k "With magic idfk"
 
     hide okuuConfused
 
-    show okuuHappy at center
+    show okuuHappy at offcentered 
 
     o "oh yeah! How can i be so stupid?"
 
     hide kakkoiUnhappy
 
-    show kakkoiSmoking at right
+    show kakkoiSmoking at farright 
 
     k "It comes naturally."
 
@@ -918,15 +975,11 @@ label contineud2:
 
     k "Art of the trade"
 
-    k "Haha Took me years to think of that"
+    hide marisaNormal with moveoutleft
 
-    hide marisaNormal with moveinleft
+    hide reimuHappy with moveoutleft
 
-    hide reimuHappy with moveinleft
-
-    show okuuNormal at left with moveinright
-
-    pov "Years wasted"
+    show okuuNormal at farleft with moveinright
 
     k "Well, did you do it?"
 
@@ -940,13 +993,13 @@ label contineud2:
 
     hide kakkoiSmoking
 
-    show kakkoiUnhappy at right
+    show kakkoiUnhappy at farright
 
     k "Oh, a wise guy eh?"
 
     hide kakkoiUnhappy
 
-    show kakkoiPointing at right
+    show kakkoiPointing at farright
 
     k "OKUU SEND THIS WACK ASS BITCH TO THE SCOLDING IRON GATES OF HELL AND HAVE THEM DAMNED!!"
 
@@ -958,15 +1011,19 @@ label contineud2:
 
     hide kakkoiPointing
 
-    show kakkoiSus at right
+    show kakkoiSus at farright
     
     k "Kill"
 
     pause 1
 
+    hide okuuNormal
+
+    show okuuKiller at farleft
+
     hide kakkoiSus
 
-    show KakkoiPointing2 at right
+    show kakkoiPointing at farright
 
     o "oh yeah sorry hang on one sec"
 
@@ -974,70 +1031,396 @@ label contineud2:
 
     show okuuKiller at farleft
 
-    show KakkoiPointing2 at right
+    show kakkoiPointing at right
+
+    stop music fadeout 0.0
 
     $ renpy.movie_cutscene("boom.mkv", delay=None, loops=0, stop_music=True)
 
+    
 
     scene bg eientei
     with fade2
 
-#     Reisen (shocked): Doctor Eirin, I think they’re awakening!
-# Eirin (normal): very good, reisen 
-# M: I got a boo boo
-# Eirin (normal): You have multiple bone fractures and severe radiation poisoning
-# M: I want lollipop now
-# Eirin (eyes closed): You will die in minutes without treatment
-# M: I want green apple flavor plz
-# Eirin: Reisen, Get the ingredients for the medicine
-# Reisen: yes, dr. eirin
-# Reisen leaves
-# Offscreen Mokou: kaguya it’s been 17000 years 
-# Offscreen Mokou: you still owe me 16$ dollars
-# Reisen: uh oh
-# Eirin: Oh no those two are fighting again
-# Eirin: It looks like we’ll be waiting a while
-# Eirin (normal): Forgive me for not introducing myself, I am eirin, the doctor of this clinic
-# Eirin: ...
-# M: (Quick i have to make small talk) 
-# M: So uh did you know three out of four people make up 75% of the population
-# M: Crazy right
-# Eirin (eyes closed): how did a human like you get so far in gensokyo?
-# M: plot armor but i like to think its my charm and wit
-# Eirin: right. 
-# M: yo is that the american flag back there
-# Eirin (confused): hm?
-# M: america. the nation. the flag.
-# Eirin (normal): oh, you must mean the moon invaders
-# M: of course something batshit crazy every single minute
-# M: you’re gonna pull some wizardry bullshit in the next 2 minutes i can tell
-# Eirin (confused): wizardry? Well..
-# Eirin : have you ever heard of the curse of apollo 13?
-# M: what
-# M: wait so YOU MFS CAUSED APOLLO 13
-# Eirin: No that’s  
-# Eirin: Well…
-# Eirin: Those were actions of the lunar capital
-# M: what the fuck is a lunar capital
-# Some explaining later...
-# M: Wow I knew the government was lying to me but the last thing I would expect to be the truth was that there are bunnies hidden on the moon attacking anyone who enters like it’s north sentinel island
-# Eirin: Then perhaps your government covering up such dangerous knowledge is beneficial for humanity?
-# M: That doesn’t matter cause I’m stuck in this little alice in wonderland situation except its real and i now have radiation poisoning
-# Eirin (eyes closed): it seems you have been living past your lifespan
-# M: Look who’s talking ms. Millennium you give the queen of England a run for her money wooo gottem
+    play music "<loop 32>audio/construction zone.mp3" fadein 2.0
 
+    show reisenConcerned at left with moveinleft
+    show eirinNormal at right with moveinright
 
-# Eirin: My potion is done.
-# Eirin: all its missing are the pop tarts
-# Reisen will be here shortly with the last ingredients.
+    rei "Doctor Eirin, I think they’re awakening!"
 
-# Eirin: heres the medicine
-# M: I don’t trust like that
-# Eirin: like i said without treatment you’ll die soon so it’s in your best interest to take it
-# M: taste like watermelon seed
+    e "Very good, reisen"
 
+    pov "I got a boo boo"
+
+    e "You have multiple bone fractures and severe radiation poisoning."
+
+    pov "I want lollipop now"
+
+    hide eirinNormal
+
+    show eirinClosed at right
+
+    e   "You will die in minutes without treatment."
+
+    pov "I want green apple flavor plz."
+
+    e "Reisen, Get the ingredients for the medicine"
+    
+    rei "Yes, Dr. Eirin"
+
+    hide reisenConcerned with moveoutleft
+
+    show eirinClosed at center with move
+
+    show eirinNormal at center
+
+    hide eirinClosed
+
+    "Offscreen, Mokou" "Kaguya, it’s been 17000 years."
+
+    "Offscreen, Mokou" "You still owe me 16$ dollars"
+
+    rei "uh oh"
+
+    hide eirinNormal
+
+    show eirinConfused at center
+
+    e "Oh no those two are fighting again."
+    
+    e "It looks like we’ll be waiting a while."
+
+    e "Forgive me for not introducing myself, I am Eirin, the doctor of this clinic."
+
+    e "{cps=1.5}...{/cps}"
+
+    pov "({i}Quick i have to make small talk{/i})" 
+    
+    pov "So uh did you know three out of four people make up 75\% of the population?"
+    
+    pov "Crazy right?"
+
+    hide eirinConfused
+
+    show eirinClosed
+
+    e "How did a human like you get so far in Gensokyo?"
+
+    pov "Plot armor but i like to think its my charm and wit"
+
+    e "Right." 
+
+    pov "Yo is that the american flag back there"
+
+    hide eirinClosed
+    
+    show eirinConfused
+
+    e "Hm?"
+
+    pov "America. the nation. the flag."
+
+    hide eirinConfused
+
+    show eirinNormal
+
+    e "Oh, you must mean the moon invaders."
+    
+    pov "Of course something batshit crazy every single minute"
+
+    pov "You’re gonna pull some wizardry bullshit in the next 2 minutes I can tell"
+
+    hide eirinNormal
+
+    show eirinConfused
+    
+    e "Wizardry? Well..."
+
+    e "Have you ever heard of the curse of Apollo 13?"
+
+    pov "what"
+    
+    pov "Wait so YOU MFS CAUSED APOLLO 13!?"
+    
+    e "No that’s"  
+    
+    e "Well..."
+    
+    e "Those were actions of the lunar capital."
+
+    pov "What the fuck is a lunar capital?"
+    
+    "{i}Some explaining later...{/i}"
+
+    hide eirinConfused
+    show eirinNormal
+
+    pov "Wow I knew the government was lying to me but the last thing I would expect to be the truth was that there are bunnies hidden on the moon attacking anyone who enters like it’s north Sentinel Island"
+    
+    e "Then perhaps your government covering up such dangerous knowledge is beneficial for humanity?"
+
+    pov "That doesn’t matter cause I’m stuck in this little Alice in the Wonderland situation except its real and I now have radiation poisoning"
+    
+    hide eirinNormal
+    show eirinClosed
+
+    e "It seems you have been living past your lifespan."
+ 
+    pov "Look who’s talking ms. Millennium you give the queen of England a run for her money wooo gottem"
+
+    e "My potion is done."
+    
+    e  "All its missing are the pop tarts."
+
+    e "Reisen will be here shortly with the last ingredients."
+
+    e "Here's the medicine."
+    
+    pov "I don’t trust like that"
+    
+    e "Like i said without treatment you’ll die soon, so it’s in your best interest to take it."
+    
+    pov "Taste like watermelon seed"
+
+    e "Here's an idea"
+
+    e "Reisen, please escort [povname] to the border"
+
+    rei "Alright when do i get my paycheck—"
+
+    e "From there, you can escape to a nearby city"
+    
+    e "Good luck"
+
+    show black
+    with fade
+
+    scene bg cafe tv
+    with fade2
+
+    pov "Hell yeah i made it out of that weird ass place now to go back home! I’m getting a flight back home—"
+
+    $ renpy.movie_cutscene("go news.mkv", delay=None, loops=0, stop_music=True)
    
+    show bg cafe tv
+    with fade2
+
+    pov "Ok so who tf told the un security council i have 74 nuclear warheads"
+    
+    show yukariNormal:
+        alpha 0.0 xalign 0.5 yalign 1.0
+        linear 2 alpha 1.0 xalign 0.5
+
+    pause 2.0
+
+    y "Hey"
+
+    pov "NOT THIS BITCH AGAIN"
+
+    y "I’ve just informed the FBI of your exact coordinates."
+
+    pov "BRO WHAT THE FUCK"
+
+    y "I also told the un security council you have 74 nuclear warheads in your possession"
+
+    pov "AWWWWWW DAMNNNNNN IT WAS YOU"
+
+    y "Not to worry war criminal, i brought you an escape! this portal back into gensokyo!"
+
+    window hide
+
+    pause 2
+
+    window show
+
+    pov "So do i take my chances back in that wonderland realm or do i partake in the famed don't drop soap challenge for the rest of my life idk i watched all of those larry lawton videos i think id be fine?"
+
+    y "I'm shoving you inthat goddamn portal"
+
+    show black
+    with fade
+
+    y "If you want to stop Kakkoi heres her casino"
+
+    pov "Wow ok way to move the plot forward"
+
+    "COMPUTER" "PLEASE ENTER PASSWORD"
+
+    pov "Password…"
+
+    pov "what anyone would have as their password!"
+    
+    pov "chupachupslover445"
+    
+    "COMPUTER" "ACCESS ACCEPTED"
+
+    scene bg casino
+    with fade2
+
+    play music "<loop 0>audio/kakkoi.mp3" fadein 2.0
+
+    show okuuNormal at left with moveinright
+
+    show kakkoiNormal at farright with moveinright
+
+    k "My money laundering and cloth drying scheme is working!"
+
+    k "I AM INVINCIBLE! No one can fuck with Kakkoi!"
+
+    k "I’ll have to give myself a promotion!"
+
+    hide okuuNormal
+
+    show okuuHappy at left
+
+    o "When the world is money im going to buy a hazmat suit"
+
+    k "You have as much taste as a carton of milk expired in 2005"
+    
+    k "Haha took me years to think of that"
+
+    pov "years wasted"
+
+    hide kakkoiNormal
+
+    show kakkoiUnhappy at farright
+
+    k "Wow."
+
+    k "The caucacity of this mf."
+    
+    k "how the hell did you survive"
+
+    hide kakkoiUnhappy
+
+    show kakkoiSmoking at farright
+
+    k "Doesn't matter"
+
+    hide kakkoiSmoking
+
+    show kakkoiPointing at farright
+    
+    k "We’re gonna fight now and beat your punk ass"
+
+    pov "How is turning the entire planet into money beneficial for you?"
+
+    hide kakkoiPointing
+
+    show kakkoiSmoking at farright
+
+    k "You’re asking the wrong questions, [povname]."
+
+    k "It’s not about the money..."
+
+    hide kakkoiSmoking
+
+    show kakkoiUnhappy at farright
+
+    k "Actually it is about the money."
+
+    k "Sorry for the confusion"
+
+    pov "go go gadget armed robbery"
+
+    k "Oh yeah?"
+
+    hide kakkoiUnhappy
+
+    show kakkoiPointing at farright
+
+    k "Come and get it"
+
+    o "Yeah if you don’t come and get it, we’re gonna keep it! then you’ll be sorry!"
+    
+    k "lemme throws some money at them"
+    
+    k "Wait Okuu why does my bank account have -4x2^2 ฿ wtf did you do?"
+
+    o "I bought two lifetime supplies of limes! For you and me!"
+
+    window hide 
+
+    pause 2.5
+
+    window show 
+
+    k "You know you’re the reason shampoo has instructions."
+
+    hide okuuHappy
+
+    show okuuConfused at left
+
+    o "I like the taste"
+
+    hide kakkoiPointing
+
+    show kakkoiUnhappy at farright
+    
+    k "Well it looks like we failed lets go home"
+    
+    hide okuuConfused
+
+    show okuuNormal at left
+
+    o "So Kakkoi what are we gonna do tomorrow night?"
+
+    hide kakkoiUnhappy
+
+    show kakkoiSmoking at farright
+
+    k "The same thing we do every night Okuu"
+
+    k "Eat animal crackers until we pass out."
+
+    hide okuuNormal with moveoutleft
+    
+    stop music fadeout 1.5
+
+    play music "<loop 0.0>audio/main-menu-theme.mp3" fadein 2.0
+
+    hide kakkoiSmoking with moveoutleft
+    
+    show reimuHappy at left with moveinright
+
+    show marisaHappy at right with moveinright
+
+    rei "You did it!"
+
+    rei "That was very impressive!"
+
+    show yukariNormal:
+        alpha 0.0 xalign 0.5 yalign 1.0
+        linear 2 alpha 1.0 xalign 0.5
+
+    hide reimuHappy   with moveoutleft
+
+    hide marisaHappy  with moveoutright
+
+    
+
+    pov "do i get to leave now and go back home?"
+    
+    y "No youre still stuck here."
+    
+    pov "wtf"
+
+    stop music fadeout 5
+
+    show black
+    with fade3
+
+    $ renpy.movie_cutscene("credits v2.mkv", delay=None, loops=0, stop_music=True)
+
     # This ends the game.
+
+    # "Thank you to Big Boo, gatomon20xx, nekon, stat, and Kdzki for their art design."
+    # "Thank you to Domomess for the logo and thumbnail design."
+    # "Thank you to Eggnnog and mikemburgia for acting roles. "
+    # "Thank you to Kenji for game programming."
+    # "Thank you to Kronington for leading, script writing, video production, and music."
+
 
     return
 
