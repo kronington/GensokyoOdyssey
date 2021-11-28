@@ -1,0 +1,28 @@
+﻿I'm sorry, but an uncaught exception occurred.
+
+While running game code:
+  File "game/script.rpy", line 496, in script
+    show remiliaNormal at right with moveinrig
+  File "game/script.rpy", line 496, in <module>
+    show remiliaNormal at right with moveinrig
+NameError: name 'moveinrig' is not defined
+
+-- Full Traceback ------------------------------------------------------------
+
+Full traceback:
+  File "game/script.rpy", line 496, in script
+    show remiliaNormal at right with moveinrig
+  File "C:\Users\Kenji\Downloads\renpy-7.4.8-sdk/renpy/ast.py", line 1434, in execute
+    paired = renpy.python.py_eval(self.paired)
+  File "C:\Users\Kenji\Downloads\renpy-7.4.8-sdk/renpy/python.py", line 2266, in py_eval
+    return py_eval_bytecode(code, globals, locals)
+  File "C:\Users\Kenji\Downloads\renpy-7.4.8-sdk/renpy/python.py", line 2259, in py_eval_bytecode
+    return eval(bytecode, globals, locals)
+  File "game/script.rpy", line 496, in <module>
+    show remiliaNormal at right with moveinrig
+NameError: name 'moveinrig' is not defined
+
+Windows-10-10.0.19041
+Ren'Py 7.4.8.1895
+Gensokyo Odyssey 1.0
+Sun Nov 28 02:58:57 2021
